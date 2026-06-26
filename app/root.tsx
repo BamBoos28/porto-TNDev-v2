@@ -1,5 +1,4 @@
 import {
-  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
@@ -19,19 +18,106 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href:
+      "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap",
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const meta: Route.MetaFunction = () => {
+  const title = "TECHNODEV";
+  const description =
+    "TECHNODEV menyediakan layanan pengembangan website, aplikasi web, sistem informasi, dan solusi digital modern untuk bisnis dan instansi.";
+
+  const url = "https://technodev.id";
+
+  return [
+    { title },
+
+    {
+      name: "description",
+      content: description,
+    },
+
+    {
+      name: "keywords",
+      content:
+        "TECHNODEV, jasa website, jasa aplikasi web, software house, web development, sistem informasi, aplikasi bisnis",
+    },
+
+    {
+      name: "author",
+      content: "TECHNODEV",
+    },
+
+    /* Open Graph */
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:site_name",
+      content: "TECHNODEV",
+    },
+    {
+      property: "og:title",
+      content: title,
+    },
+    {
+      property: "og:description",
+      content: description,
+    },
+    {
+      property: "og:url",
+      content: url,
+    },
+
+    /* Twitter */
+    {
+      name: "twitter:card",
+      content: "summary",
+    },
+    {
+      name: "twitter:title",
+      content: title,
+    },
+    {
+      name: "twitter:description",
+      content: description,
+    },
+
+    /* SEO */
+    {
+      name: "robots",
+      content: "index,follow",
+    },
+
+    {
+      rel: "canonical",
+      href: url,
+    },
+  ];
+};
+
+export function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+
+        <link rel="icon" type="image/x-icon" href="/dlogo.png" />
+
         <Meta />
         <Links />
       </head>
+
       <body>
         {children}
         <ScrollRestoration />
@@ -43,33 +129,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
-}
-
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
-  let stack: string | undefined;
-
-  if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404
-        ? "The requested page could not be found."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
-  }
-
-  return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
-  );
 }
