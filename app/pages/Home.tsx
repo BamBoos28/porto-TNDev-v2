@@ -54,10 +54,6 @@ export default function Home() {
           <div className="container-custom">
             <div className="grid items-center gap-12 sm:grid-cols-2">
               <div>
-                <span className="hero-eyebrow text-xs lg:text-base">
-                  Website Development • Fix Bug • UI/UX • Tugas IT
-                </span>
-
                 <h1 className="hero-title max-w-2xl">
                   Jasa Pembuatan Website & Fix Logika Program
                 </h1>
