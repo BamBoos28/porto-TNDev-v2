@@ -120,46 +120,57 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* COUNTER */}
-      <FadeInSection className="counter-section py-9 xl:py-16" delay={80}>
-        <section>
-          <div className="container-custom">
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
-              <div className="counter-card counter-card--pink">
-                <div className="counter-icon counter-icon--pink">
-                  <Globe className="h-10 w-10" />
-                </div>
-                <h2 className="counter-title">Website</h2>
-                <p className="counter-text">Custom project & slicing</p>
-              </div>
-
-              <div className="counter-card counter-card--amber">
-                <div className="counter-icon counter-icon--amber">
-                  <Bug className="h-10 w-10" />
-                </div>
-                <h2 className="counter-title">Bug Fix</h2>
-                <p className="counter-text">Debugging dan optimasi logic</p>
-              </div>
-
-              <div className="counter-card counter-card--lilac">
-                <div className="counter-icon counter-icon--lilac">
-                  <BookOpen className="h-10 w-10" />
-                </div>
-                <h2 className="counter-title">Tugas</h2>
-                <p className="counter-text">Bantuan kuliah & sekolah</p>
-              </div>
-
-              <div className="counter-card counter-card--sky">
-                <div className="counter-icon counter-icon--sky">
-                  <Smartphone className="h-10 w-10" />
-                </div>
-                <h2 className="counter-title">Responsif</h2>
-                <p className="counter-text">Mobile, tablet, dan desktop</p>
-              </div>
+{/* COUNTER / SERVICES */}
+<FadeInSection className="counter-section py-9 xl:py-16" delay={80}>
+  <section>
+    <div className="container-custom">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-4">
+        
+        {/* GROUP 1: WEBSITE SERVICES (Mengambil 3 Kolom) */}
+        <div className="md:col-span-3 grid gap-6 grid-cols-1 sm:grid-cols-3">
+          {/* Card 1: Website Slicing */}
+          <div className="counter-card counter-card--pink">
+            <div className="counter-icon counter-icon--pink">
+              <Globe className="h-10 w-10" />
             </div>
+            <h2 className="counter-title">Website</h2>
+            <p className="counter-text">Custom project & slicing</p>
           </div>
-        </section>
-      </FadeInSection>
+
+          {/* Card 2: Bug Fix */}
+          <div className="counter-card counter-card--amber">
+            <div className="counter-icon counter-icon--amber">
+              <Bug className="h-10 w-10" />
+            </div>
+            <h2 className="counter-title">Bug Fix</h2>
+            <p className="counter-text">Debugging & optimasi logic</p>
+          </div>
+
+          {/* Card 3: Responsif */}
+          <div className="counter-card counter-card--sky">
+            <div className="counter-icon counter-icon--sky">
+              <Smartphone className="h-10 w-10" />
+            </div>
+            <h2 className="counter-title">Responsif</h2>
+            <p className="counter-text">Mobile, tablet, & desktop</p>
+          </div>
+        </div>
+
+        {/* GROUP 2: TUGAS AKADEMIK (Mengambil 1 Kolom Khusus) */}
+        <div className="md:col-span-1">
+          <div className="counter-card counter-card--lilac h-full">
+            <div className="counter-icon counter-icon--lilac">
+              <BookOpen className="h-10 w-10" />
+            </div>
+            <h2 className="counter-title">Tugas</h2>
+            <p className="counter-text">Bantuan kuliah & sekolah</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</FadeInSection>
 
       {/* ABOUT */}
       <FadeInSection className="about-section py-9 xl:py-16" delay={100}>

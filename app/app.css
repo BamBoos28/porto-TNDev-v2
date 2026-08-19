@@ -1065,8 +1065,18 @@ html.dark {
 
   .navbar-shell {
     @apply sticky top-0 z-20 w-full;
-    background: rgba(255, 255, 255, 0.82);
-    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(236, 72, 153, 0.08),
+        transparent 24%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba(245, 158, 11, 0.08),
+        transparent 22%
+      ),
+      var(--bg);    border-bottom: 1px solid var(--border);
     backdrop-filter: blur(14px);
   }
 
